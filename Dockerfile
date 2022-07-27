@@ -1,4 +1,4 @@
-FROM ruby:2.6.9-alpine
+FROM ruby:3.1.2-slim-bullseye
 MAINTAINER Brian Hogan <brianhogan@napcs.com>
 
 run apk add --update ruby-dev build-base \
