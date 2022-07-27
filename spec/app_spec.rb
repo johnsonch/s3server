@@ -7,7 +7,7 @@ describe S3Server do
   include Rack::Test::Methods  #<---- you really need this mixin
 
   def app
-    Sinatra::Application
+    S3Server::Server
   end
 
   let(:S3Server) { S3Server.new }
@@ -24,5 +24,14 @@ describe S3Server do
       expect(response.body).to_not be_nil
     end
   end
+
+  context "Get to /fail" do
+    let(:response) { get "/" }
+    it "contain fail message" do
+      expect(response.body).to include("You don't have access.")
+    end
+
+  end
+
 
 end
